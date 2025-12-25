@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Alt Yazı Çekici</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        .bg-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .subtitle-text {
+            font-size: 16px;
+            transition: font-size 0.2s;
+            line-height: 1.9;
+            color: #1f2937;
+        }
+
+        .search-section {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient min-h-screen p-4 md:p-6">
+
+    <!-- Fixed Search Section -->
+    <div class="search-section glass rounded-2xl shadow-xl p-5 md:p-6 mb-5 max-w-6xl mx-auto animate-fade-in">
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center">🎬 YouTube Alt Yazı Çekici</h1>
+
+        <div class="space-y-3">
+            <!-- URL Input -->
+            <input type="text" id="videoUrl" placeholder="YouTube video linkini buraya yapıştırın..."
+                class="w-full px-4 py-3.5 rounded-xl border-2 border-purple-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all text-gray-700 bg-white shadow-sm">
+
+            <!-- Controls Row -->
+            <div class="flex flex-col sm:flex-row gap-2">
+                <select id="langSelect" title="Dil"
+                    class="flex-1 px-4 py-3 rounded-xl border-2 border-purple-200 focus:border-purple-500 outline-none transition-all text-gray-700 bg-white shadow-sm font-medium">
+                    <option value="tr">🇹🇷 Türkçe</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="es">🇪🇸 Español</option>
+                </select>
+
+                <select id="browserSelect" title="Tarayıcı"
+                    class="flex-1 px-4 py-3 rounded-xl border-2 border-purple-200 focus:border-purple-500 outline-none transition-all text-gray-700 bg-white shadow-sm font-medium">
+                    <option value="brave">🦁 Brave</option>
+                    <option value="chrome">🌐 Chrome</option>
+                    <option value="safari">🧭 Safari</option>
+                    <option value="firefox">🦊 Firefox</option>
+                    <option value="none">🚫 Çerezsiz</option>
+                </select>
+
+                <button onclick="fetchSubtitles()" id="fetchBtn"
+                    class="sm:w-auto bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 disabled:opacity-50">
+                    Çek
+                </button>
+            </div>
+        </div>
+
+        <!-- Error Toast -->
+        <div id="errorBox" class="hidden mt-3 p-3 bg-red-50 border-l-4 border-red-500 text-red-800 rounded-lg">
+            <div class="flex items-start gap-2">
+                <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="flex-1 text-sm">
+                    <p id="errorMsg" class="font-semibold mb-1"></p>
+                    <div id="advice429" class="hidden text-xs space-y-0.5 mt-2 text-red-700">
+                        <p>💡 <strong>Çözüm:</strong> Kullandığınız tarayıcıyı seçin ve YouTube'da giriş yapılı
+                            olduğundan emin olun.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loader" class="hidden flex justify-center items-center py-6">
+            <div class="animate-spin rounded-full h-8 w-8 border-t-3 border-b-3 border-purple-600"></div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="resultCard" class="hidden max-w-6xl mx-auto animate-fade-in">
+        <div class="glass rounded-2xl shadow-xl overflow-hidden">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-4 md:p-5">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                    <h2 id="videoTitle" class="text-lg md:text-xl font-semibold text-white flex-1"></h2>
+                    <div class="flex gap-2 flex-wrap">
+                        <button onclick="changeFontSize(-2)"
+                            class="px-2.5 py-1.5 bg-white/20 hover:bg-white/30 text-white rounded-lg font-semibold transition-all text-sm backdrop-blur"
+                            title="Küçült">A-</button>
+                        <button onclick="changeFontSize(0)"
+                            class="px-2.5 py-1.5 bg-white/20 hover:bg-white/30 text-white rounded-lg font-semibold transition-all text-sm backdrop-blur"
+                            title="Normal">A</button>
+                        <button onclick="changeFontSize(2)"
+                            class="px-2.5 py-1.5 bg-white/20 hover:bg-white/30 text-white rounded-lg font-semibold transition-all text-sm backdrop-blur"
+                            title="Büyült">A+</button>
+
+                        <button onclick="copyToClipboard()"
+                            class="flex items-center gap-1.5 px-3 py-1.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            Kopyala
+                        </button>
+
+                        <button onclick="downloadText()"
+                            class="flex items-center gap-1.5 px-3 py-1.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-all text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            İndir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div id="stats" class="flex gap-4 mt-3 text-sm text-white/90">
+                    <span>📊 <strong id="wordCount">0</strong> kelime</span>
+                    <span>📝 <strong id="charCount">0</strong> karakter</span>
+                    <span>⏱️ <strong id="readTime">0</strong> dk</span>
+                </div>
+            </div>
+
+            <!-- Subtitle Text -->
+            <div class="p-5 md:p-6 bg-white">
+                <div class="max-h-[70vh] overflow-y-auto pr-2 subtitle-text" id="cleanedText">
+                    <!-- Text content goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentContent = "";
+        let currentTitle = "";
+        let currentFontSize = 16;
+
+        async function fetchSubtitles() {
+            const url = document.getElementById('videoUrl').value;
+            const lang = document.getElementById('langSelect').value;
+            const browser = document.getElementById('browserSelect').value;
+            const fetchBtn = document.getElementById('fetchBtn');
+            const loader = document.getElementById('loader').classList;
+            const resultCard = document.getElementById('resultCard').classList;
+            const errorBox = document.getElementById('errorBox').classList;
+            const advice429 = document.getElementById('advice429').classList;
+
+            if (!url) return alert("Lütfen bir YouTube linki girin.");
+
+            fetchBtn.disabled = true;
+            loader.remove('hidden');
+            resultCard.add('hidden');
+            errorBox.add('hidden');
+            advice429.add('hidden');
+
+            try {
+                const response = await fetch('/fetch', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: url, lang: lang, browser: browser })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('videoTitle').innerText = data.title;
+                    document.getElementById('cleanedText').innerText = data.content;
+                    currentContent = data.content;
+                    currentTitle = data.title;
+
+                    updateStats(data.content);
+                    resultCard.remove('hidden');
+
+                    setTimeout(() => {
+                        document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                } else {
+                    document.getElementById('errorMsg').innerText = data.error || "Bir hata oluştu.";
+                    if (response.status === 429) advice429.remove('hidden');
+                    errorBox.remove('hidden');
+                }
+            } catch (err) {
+                document.getElementById('errorMsg').innerText = "Bağlantı hatası oluştu.";
+                errorBox.remove('hidden');
+            } finally {
+                fetchBtn.disabled = false;
+                loader.add('hidden');
+            }
+        }
+
+        function updateStats(text) {
+            const words = text.trim().split(/\s+/).length;
+            const chars = text.length;
+            const readTime = Math.ceil(words / 200);
+
+            document.getElementById('wordCount').innerText = words.toLocaleString('tr-TR');
+            document.getElementById('charCount').innerText = chars.toLocaleString('tr-TR');
+            document.getElementById('readTime').innerText = readTime;
+        }
+
+        function changeFontSize(delta) {
+            const textElement = document.getElementById('cleanedText');
+            if (delta === 0) {
+                currentFontSize = 16;
+            } else {
+                currentFontSize = Math.max(12, Math.min(24, currentFontSize + delta));
+            }
+            textElement.style.fontSize = currentFontSize + 'px';
+        }
+
+        async function copyToClipboard() {
+            if (!currentContent) return;
+
+            try {
+                await navigator.clipboard.writeText(currentContent);
+
+                const btn = event.target.closest('button');
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Kopyalandı!';
+                btn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+                btn.classList.add('bg-green-500');
+
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                    btn.classList.remove('bg-green-500');
+                }, 2000);
+            } catch (err) {
+                alert('Kopyalama başarısız.');
+            }
+        }
+
+        function downloadText() {
+            if (!currentContent) return;
+            fetch('/download', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ content: currentContent, title: currentTitle })
+            }).then(resp => resp.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${currentTitle}.txt`;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                });
+        }
+    </script>
+</body>
+
+</html>

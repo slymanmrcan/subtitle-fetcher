@@ -1,0 +1,4 @@
+Flask==3.0.0
+yt-dlp
+beautifulsoup4==4.12.2
+webvtt-py==0.4.6

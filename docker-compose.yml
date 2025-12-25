@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  subtitle-app:
+    build: .
+    ports:
+      - "5001:5001"
+    volumes:
+      # Mount static files for development
+      - ./static:/app/static
+      # Mount temp directory for subtitle files
+      - ./temp_subs:/app/temp_subs
+    environment:
+      - FLASK_ENV=development
+    restart: unless-stopped

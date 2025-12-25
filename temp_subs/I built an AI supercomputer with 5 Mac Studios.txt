@@ -1,0 +1,435 @@
+1 2 3 4 5 Mac Studio'yu birbirine bağlayıp süper güçlü bir yapay zeka kümesi oluşturuyorum. Bulabildiğim en büyük ve en güçlü yapay zeka modellerini çalıştırmak istiyorum.
+
+Her şeyi deniyoruz ve hedefim hepsinin en büyüğü olan Llama 3.1 405b modelini çalıştırmak. Bu şey korkutucu. Normalde bulutta, evlerimizden daha pahalı sunuculara sahip süper güçlü yapay zeka kümeleri tarafından çalıştırılıyor, ama şimdi beş
+
+Mac Studio ile deneyeceğiz. Başarabilir miyiz bilmiyorum, ama deneyeceğiz. Kahvenizi hazırlayın, hadi başlayalım.
+
+Bu videoya sponsor olan ve mümkün kılan Nor VPN'e teşekkür ederim. Evet, yapay zeka ile oynamam ve size harika şeyler göstermem için bana para ödüyorlar, bu gerçekten harika.
+
+Onlar hakkında daha sonra daha fazla konuşacağız. Şimdi şunu da belirteyim, sadece yapay zeka kümesi için beş Mac Studio satın almadım. Yani, benim yapamayacağım bir şey değil, ben de yapardım ama Networkchuck Studios'ta video düzenleme hattımız için PC'den Mac'e geçiyoruz.
+
+Ne düşünüyorsunuz, aşağıya yorum yapın.
+
+Bu harika bir fikir, eminim hepimiz hemfikiriz ama bu güzel ve güçlü makineler geldiğinde, "Bunu henüz onlara veremem, önce onlarla oynamak istiyorum" dedim ve EXO Labs adında bir yazılım buldum, yeni ve
+
+beta aşamasında ama tamamen yapay zeka kümeleme üzerine kurulu. Bakın, her türlü bilgisayar donanımını alabilirsiniz, bir Raspberry Pi, yedek bir dizüstü bilgisayar, 4090'lı süper güçlü bir oyun bilgisayarı...
+
+Bunları birbirine bağlayıp yapay zeka modelleri çalıştırabilirsiniz, kaynakları paylaşıyorlar. Aslında yapması oldukça kolay, bu videoda size nasıl yapılacağını göstereceğim ama önce tüm bu Mac Studio'ları açmam gerekti ve dürüst olmak
+
+gerekirse bu videonun en sevdiğim kısmıydı. Ne olduğunu bilmiyorum ama yeni teknolojiyi açmak, yeni donanımı kutusundan çıkarmak insana neşe veriyor ve bu bir ağ anahtarı veya yönlendirici olabilir, beni mutlu ediyor.
+
+Siz de aynı şekilde misiniz? Neyse, kutularını açtım, çok güzeller.
+
+Bir kere kokladım, inanılmaz kokuyorlardı ama çılgınlaşmadan önce...
+
+Yapay zeka kümelerinden bahsetmek istiyorum, neden şimdi? Zaten özel bir yapay zeka sunucum var, adı Terry. Onu bu videoda kurdum ve harika.
+
+Stüdyomda yerel yapay zeka modelleri çalıştırmamı sağlıyor, yani buluta bağlanmıyorum ve OpenAI gibi korkutucu dev şirketlere güvenmiyorum.
+
+Her şey yerel, verilerime erişemiyorlar. Ama 2 adet 4090 GPU'ya sahip Terry'yi kurmamın sebebi, yapay zeka modelleri çalıştırmanın bazen kaynak yoğun olması.
+
+Çünkü şu anda bilgisayarınız, beni izlediğiniz bilgisayar, muhtemelen bir yapay zeka modeli çalıştırabilir. Anlık olarak O'Llama'yı indirip Llama 321b çalıştırabilirsiniz ve gerçekten iyi çalışır, onunla Chad GPT gibi konuşabilirsiniz, ancak
+
+Chat GPT gibi hissettirmeyecek, o kadar akıllı değil ve bunu çok çabuk fark edeceksiniz. Aradaki fark oldukça büyük.
+
+Chat GPT kalitesine ulaşmak için daha büyük, daha gelişmiş bir yerel model kullanmanız gerekecek ve işte burada dizüstü bilgisayarınız yetersiz kalacak. Daha büyük derken, esas olarak bir şeyden bahsediyorum. Parametreler diye adlandırdığım şeylerden bahsettim,
+
+Llama 3.2 1B. Bunu biraz açalım. Bu nispeten küçük bir model ve 1B, 1 milyar anlamına geliyor.
+
+Yapay zeka bağlamında bir parametreyi düşündüğünüzde, her biri öğrenilmiş bilgiyi temsil eder.
+
+Bu parametrelerin her biri, bir sinir ağında sayısal bir değer veya ağırlıktır ve modelin tahminlerde bulunmasına yardımcı olurlar. Ve bir model de tam olarak bunu yapar; onunla konuştuğunuzda, söylediklerinize dayanarak yanıtın ne olması gerektiğini tahmin eder.
+
+Aslında bir parametreyi öğrenilmiş bilgi olarak düşünebilirsiniz ve bir modelin ne kadar çok parametresi varsa, verilerden o kadar çok örüntü, ilişki ve nüans öğrenebilir veya özünde ne kadar çok parametresi varsa o kadar akıllı olur.
+
+Şimdi, Llama 3.2 gibi 1 milyar parametreli bir model, basit görevler için iyidir.
+
+Onunla konuşabilirsiniz, temel cümle tamamlama yapabilir, özetleme yapabilir ve CPU gibi şeylerde çalıştırabilirsiniz. GPU daha iyi olacaktır, ancak daha zayıf akıl yürütme ve olgusal doğruluğa sahiptir.
+
+Llama 3.2'yi temel modelimiz olarak kullanıyorum, daha düşük parametreli, daha aptal modeller de var, ancak Kullanım alanlarına ve eğer Raspberry Pi üzerinde çalıştırmak isterseniz daha iyi performans alacağınıza eminim.
+
+Tiny Llama diye bir tane var, gidip bulayım. Gerçekten de Tiny Llama oldukça sevimli. Şimdi şuna bakın, Tiny Llama aslında 1,1 milyar parametreli bir model, ancak nicelleştirme sayesinde ( bunun hakkında daha sonra konuşacağız) daha
+
+az kaynakla çalıştırabilirsiniz: 638 megabayt VRAM. VRAM nedir? Video RAM'i.
+
+Yani bu, bilgisayarınızdaki tipik bellek veya RAM değil, GPU'nuzun sahip olduğu bellek. Ve evet, yerel yapay zeka çalıştırmaktan bahsettiğimizde GPU çok önemli.
+
+Bir tane varsa hayatınız daha kolay olur. Bu, Tiny Llama gibi LLM'leri CPU'da çalıştıramayacağınız anlamına gelmez, çalıştırabilirsiniz, ancak çıkarım veya diyalog daha yavaş olacaktır.
+
+Tabii ki daha da yukarı çıkabiliriz. Llama 3.2'yi temel alarak, her model için ne tür bir GPU'ya ihtiyacınız olabileceğine dair bazı önerilen VRAM değerleri vereceğim.
+
+Llama 3.2, 1 milyar parametre için 4 adet GPU önerilir. GB VRAM'den bahsediyoruz, yine CPU kullanabilirsiniz ama yavaş olacaktır. Llama 3.2 3 milyar parametre için 6 GB VRAM'e ihtiyacınız olacak, bu yüzden 2060 GPU alacaklar. Llama 3.1 8
+
+milyar parametre için 10 GB VRAM'e ihtiyacınız olacak, bu da Microsoft'tan bir 3080 54 olacak. 14 milyar parametre için 16 GB VRAM'e ihtiyacınız olacak, bu da bir 3090 olacak. Ve işte şu anda en sevdiğim yerel yapay zeka modeli: Llama 3.3 70 milyar
+
+parametre için. Bunu şu anda yapabilecek tüketici sınıfı bir GPU yok, çalıştırmak için 48 GB VRAM'e ihtiyacınız olacak, ben iki tane 409 kullanmak zorundayım. Ve sonra biraz daha çılgınlaşalım, bir üst seviyeye çıkalım: Llama 3.1
+
+405 milyar parametre. Şimdi hızlıca bir şey daha söyleyeyim, merak ediyor olabilirsiniz, Llama 3.2'den Llama 3.1'e ve sonra da... 3.3 ve sonra tekrar 3.1'e geçiyoruz, neler oluyor? Bunlar, daha yeni veriler üzerinde eğitilmiş ve birkaç yeni
+
+özelliğe sahip farklı model nesilleri. Ancak Llama 3.2 1B'nin daha yeni olması, Llama 318b'den daha zeki veya daha iyi mantık yürütme yeteneğine sahip olduğu anlamına gelmiyor.
+
+Neyse, 405b'ye geri dönersek, bu aleti çalıştırmak için bir terabayt VRAM öneriyorlar, bu inanılmaz. Bu bir yapay zeka kümesi olacak ve normal GPU'lar kullanmayacaksınız, Nvidia'nın H100'lerini veya A1100'lerini kullanacaksınız
+
+ve kümemle hedeflediğim şey bu. Şu anda piyasadaki en iyi GPU'yu düşünün, bir 4090, 24 GB VRAM'e sahip. Bunu çalıştırmak için 42 adet 490'a ihtiyacım olurdu.
+
+Şimdi, LLM çalıştırma hakkında bir iki şey bilenleriniz için, bu rakamlar biraz yanlış görünebilir ve bunun nedeni, bunların çoğunun zaten mevcut olmasıdır. Ölçümlerimize entegre edilmiş niceleme nedir?
+
+Niceleme başlı başına bir video konusu olabilir, ancak şu anda bunu yapmayacağız.
+
+Şimdi, büyük modellerin daha küçük GPU'lara nasıl sığdığını öğrenelim. Bunun bir bedeli var; daha küçük bir GPU'ya sığması için hassasiyetten biraz ödün vermek zorundalar, ancak bunu doğruluğu koruyacak şekilde yapıyorlar. Bir modelin nicelendiğini, belirli gösterimler gördüğünüzde anlarsınız.
+
+Örneğin, FP32 tam hassasiyet, hiçbir değişiklik yok; FP16 ise yarım hassasiyet.
+
+Yarım hassasiyet dediğimde, bunun yarı yarıya daha kötü olduğu anlamına gelmiyor; %0 ila %2 arasında bir hassasiyet kaybından bahsediyoruz.
+
+Ancak daha sonra tamsayı tabanlı nicelemeye geçiyoruz ve burası bizim için eğlenceli çünkü GPU'larımızda, tüketici GPU'larımızda çalıştırabiliyoruz.
+
+İlk büyük olanı n8; bu, modeli yaklaşık %1 ila %3 hassasiyet kaybıyla dört kat daha küçük hale getirecek. Şimdi bunu büyük bir yıldız işaretiyle söylüyorum, duruma bağlı.
+
+Bu modeli nicelleştirmek için farklı yöntemler var ve bu farklı yöntemler, kayıpları azaltma biçimlerini değiştiriyor; bu tamamen başka bir videonun konusu, ancak şunu bilin ki, gerçekten inmek istediğiniz en düşük değer olan N4'e indiğimizde, bu tam FP32 modelinden sekiz kat daha küçük, ancak
+
+kayıp oldukça büyük, %10 ila %30 arasında ve kodlama, mantıksal akıl yürütme veya yaratıcı metin gibi karmaşık görevlerde bozulmayı muhtemelen fark edeceksiniz. Daha da aşağıya inerseniz, aklını kaybediyor, Arkham Asylum'dan bahsediyoruz. Bu modellerin çoğu aslında
+
+kendilerini daha küçük hale getirmek için N8 kullanıyor, böylece tüketici seviyesindeki GPU'lara sığabiliyorlar.
+
+Şimdi, Llama 3.1 405b ile N4'ü kullanmayı deneyeceğim.
+
+Bunu kendim nicelleştirmeyeceğim, birisi zaten benim için yaptı, sadece çalıştırmayı deneyeceğim, ancak bu nicelleştirme ile bile bu oldukça zor bir iş. Peki, 42 adet 409S'nin yapacağı bu modeli beş Mac Studio'nun çalıştırmasını nasıl bekleyebilirim? Yeni M serisi Mac'lerin bir numarası var, buna
+
+birleşik bellek veya birleşik bellek mimarisi deniyor. Çoğu sistemde sistem belleğiniz, VRAM'iniz ve GPU belleğiniz vardır.
+
+Yeni Mac'lerde durum böyle değil, her şey için tek bir bellek kullanıyorlar ve bu da oldukça havalı bir şeyin kilidini açıyor.
+
+Örneğin, benim Mac Studio'larımın her birinde 64 GB paylaşımlı RAM var ve bu RAM GPU için kullanılabiliyor. Yani aklımda 64 * 5 diye düşünüyorum, bu bana GPU için kullanabileceğim 320 GB RAM veriyor.
+
+Sadece RAM miktarı değil, aynı zamanda aktarım da önemli. Tipik bir sistemde, sistem belleği kendi içinde ve GPU belleği arasında veri aktarmak zorundadır.
+
+Birleşik bellekte ise aktarım yok, her şey o belleği kullanıyor.
+
+Bu Mac Studio'lardan biri 2600 dolardı ve bu tüm bilgisayar içindi.
+
+Oyun bilgisayarınızın sadece bir parçası olan 490 dolar ise 1600 dolara mal oluyor ve ben GPU'm için kullanabileceğim çok daha fazla RAM elde ediyorum. Mac'in son derece enerji verimli olduğunu da söylemeden geçmeyelim; 490 ile Mac Studio'nun güç tüketimi arasındaki farkı birazdan göreceksiniz, ama bu birebir karşılaştırma değil,
+
+Apple ile PC karşılaştırması. Demek istediğim, 4090 oyun PC'sini Mac Studio ile karşı karşıya koyarsanız, PC her zaman kazanır. 4090 gibi Nvidia GPU'larında özel tensor çekirdekleri bulunur ve CUDA için optimize edilmişlerdir. Bütün bunlar ne
+
+anlama geliyor? Bunlar, yapay zeka modellerinin uzun zamandır optimize edildiği şeyler. M serisi Max'ler şimdiye kadar yapay zeka makineleri olarak düşünülmemişti, sadece Nvidia'nınkilerdi. Yani biri yeni bir model yaptığında,
+
+o modeli Nvidia GPU'larında çalışacak şekilde yapıyor, bu da daha iyi bir deneyim yaşamanızı sağlıyor. Apple'ın da MLX veya makine öğrenimi hızlandırması diye bir şeyi var ve bunu Exol Labs ile kullanacağım, ancak CUDA yine de destek nedeniyle kazanıyor.
+
+Tamam, başlayalım, test etmeye hazırlanıyoruz. Beş adet Mac Studio'muz var, bu arada özellikleri şöyle: M2 Ultra 64 GB RAM, birleşik RAM. Şimdi çözmemiz gereken ilk büyük şey, bu Mac'leri nasıl
+
+birbirine bağlayacağımız. Küme halinde olacaklar, yani çok fazla iletişim kuracaklar ve bu da senaryomuz için çok fazla bant genişliği anlamına geliyor.
+
+Dahili 10 GB Ethernet bağlantısını tercih ettim, bu yüzden burada beş Mac'i birbirine bağlayan bir UniFi xg6 PoE 10 gig switch'im var.
+
+Ancak bu, en büyük darboğazımız olacak, ideal değil. 10 gigabit çok gibi geliyor ama yapay zeka ağlarında genellikle son derece yüksek hızlı bağlantılar var, saniyede 400 gigabit'ten bahsediyorum. Hatta geçen yıl Juniper ile yapay zeka ağları üzerine bir video yapmıştım
+
+ve saniyede 800 gigabit'lik bağlantılar piyasaya sürmek üzereydiler, ki bunun artık mümkün olmadığına eminim.
+
+Yani benim 10 gigam'ım onların 800 gigam'ına karşı. Ve sadece bu da değil, yapay zeka ağları ve kurumsal yapay zeka ağlarından bahsediyoruz, Ethernet ve TCP/IP ile görebileceğiniz ağ yükünün büyük bir kısmını ortadan kaldırıyorlar. Birçok durumda GPU'dan GPU'ya erişim yapıyoruz.
+
+İşletim sisteminin getirdiği birçok yükü atlıyoruz, ancak bizim Mac stüdyolarımız var ve bunların tüm TCP/IP yığınından geçmesi gerekiyor.
+
+Bunun bu kadar önemli olmasının nedeni, EXO yazılımını kurduğumda Mac'lerimizin aslında kullanacağımız modeli almasıdır.
+
+Örneğin, Llama 3.2 8B diyelim, her bir Mac'e ayrı ayrı modelin tamamını indirmeyecek, indirmeyi bölecek ve yapay zeka modelimizi çalıştırırken her Mac işin bir bölümünü çalıştıracak. Ancak verimli iletişime bağlı herhangi bir iyi ekip gibi, çok fazla
+
+veri alışverişi yapacaklar. Aslında, bunu test ederken kullandığımız güç ve bant genişliği miktarını takip etmeye çalışacağım.
+
+Mac stüdyolarımla daha fazla bant genişliği elde etmenin bir yolu var ve bu da Thunderbolt ile. Alex Zisin, sanırım adını böyle telaffuz ediyorsunuz, yeni izlemeye başladığım bir başka YouTuber, bunu bir sürü M4 Mac mini ile yaptı. Thunderbolt
+
+güçlü çünkü doğrudan PCIe bağlantısı sağlıyor.
+
+İdeal olarak saniyede 40 gigabit'e kadar erişim ve bant genişliği. Tek sorun, beş cihazı bir araya kümelemek istediğinizde ortaya çıkıyor; çünkü sınırlı sayıda bağlantınız var ve hepsini zincirleme bağlayamazsınız. Bunu çözmenin yolu, bir Thunderbolt Hub veya köprü kullanmaktır ve o da bunu yaptı, ancak yine de
+
+bazı darboğazlar yaşayacaksınız. Bu arada, Thunderbolt performansının Ethernet'e karşı nasıl olduğunu görmek için videosunu izlemelisiniz, bunu şimdi yapacağız.
+
+Hey, gelecekten Network Chuck burada. Aslında Thunderbolt'u test ettim çünkü mecburdum, çünkü 10 gigabit çok büyük bir darboğazdı, göreceksiniz. Ve evet, hepsi bu kadar.
+
+Ama şimdi nihayet EXO'yu kurma noktasına geldik.
+
+Projeye ait bağlantıyı aşağıda paylaşacağım ve EXO'yu Mac'e nasıl kuracağınızı göstereceğim.
+
+Linux için de dokümantasyonları var ama kurulum neredeyse aynı. Bence Mac sürümü daha zor. Birkaç şeye dikkat etmelisiniz: Python 3.12'nin kurulu olduğundan emin olun. Bunu şimdi yapacağım.
+
+Python sürümlerimi yönetmek için `p MV` kullanıyorum ve ardından ` pV` ile Python 3.12'yi kurabilirim ve bunu tüm Max'lerde yapacağım. Bu arada, Home Assistant'ı da çalıştıralım. Aslında beş Max'in çektiği güç miktarını ölçmek için akıllı bir priz kullanıyorum, yani şu anda bir tür temel seviyede
+
+46 watt çekiyoruz ve bu beş Max için de geçerli, inanılmaz değil mi? Tamam, Python 12 kuruldu, bunu global ` pmv global 3.12` olarak ayarlayacağım ve Python `D-version` ile hızlıca doğrulayacağım. Ah, muhtemelen terminalimi yenilemem gerekiyor, `
+
+source` komutunu çalıştıracağım. zshrc'yi bir kez daha deneyeceğim, mükemmel. İlk yapacağım şey, Mac için MLX makine öğrenimi hızlandırmasını kurmak. Bunu Pip install mlx komutuyla yapacağım.
+
+Bunun Mac dağıtımlarına özgü olduğunu unutmayın, çok hızlı. Bu arada, Pip kurulu değilse, Pip'i ve ihtiyacınız olan her şeyi xcode-select D-install komutuyla kurabilirsiniz. Tamam, MLX
+
+tüm Mac'lerime kuruldu. Şimdi EXO'yu kurma zamanı. Bu en kolay kısım olacak, sadece depolarını klonlamak için bir get clone komutu alacağım. Bunu her Mac'imde yapacağım.
+
+X dizinine gireceğim ve ardından pip install d e do komutunu kullanacağım ve biraz kahve molası vereceğim. Şimdi bu sırada EXO hakkında bilmeniz gereken birkaç harika şey var. İlk olarak, EXO'yu çalıştırdığımızda Mac'ler birbirlerini sihirli bir şekilde keşfedecekler. Yani ağ
+
+üzerinden değil mi? Ama otomatik olarak birbirlerini keşfedecekler ve bir kümede olduklarını anlayacaklar.
+
+EXO ayrıca bizim için bir web arayüzü başlatacak, böylece biz Ona bakabilir, onunla oynayabilir ve bazı LLMS'leri test edebilirsiniz.
+
+LLMS'lerden bahsetmişken, ayrıca GPT uyumlu veya OpenAI uyumlu bir API'ye sahipler. Bu, EXO'yu gerçekten kullanmak istiyorsanız (hala beta aşamasında ve oldukça yeni olmasına rağmen), bunu OpenAI API'sini kullanan herhangi bir şeye entegre edebileceğiniz anlamına gelir; bu da benim kullandığım birçok araçtan biri. Hatta
+
+Fabric projesini yöneten Daniel Misler'e ulaştım, Fabric'i her gün kullanıyorum ve "Hey, buna EXO laboratuvarlarını ekleyebilir misin?" dedim. O da " Evet, üzerinde çalışıyorum. Aslında bu videoyu izlediğinizde muhtemelen zaten orada olacak." dedi. Tamam,
+
+kurulumumuz tamamlandı gibi görünüyor. Şimdi bu çok Max'e özgü. Eğer dizini LS ile gösterirsem, şu anda EXO dizinindeyim, Max'lerinizi EXO'yu çalıştırmak için biraz ayarlayacak olan "conf figure mlx Dosh" adlı bir komut dosyası çalıştırdığımı göreceksiniz.
+
+Bunu her Mac'te çalıştıracağım. Bunun önüne "pseudo" koymak isteyebilirsiniz, böylece şifrenizi girmenize gerek kalmaz. Her iki durumda da bazı şeyler yaptığını fark ettiniz mi? Dürüst olmak gerekirse ne olduğunu bilmiyorum. İşte bu kadar ve şimdi EXO'yu çalıştırabileceğimiz noktadayız, bu yüzden
+
+ilkini burada çalıştıracağım: XO XO XO XO ve arkasında bir tane daha var, işte beş tane. Diğer terminale ulaşamıyorum, neredesin dostum? Ah, işte orada, EXO, bunu görüyor musun?
+
+EXO, kümesinde beş düğüm olduğunu hemen keşfetti, otomatik keşif yaptı. Aslında, onları hemen durduracağım, özür dilerim.
+
+Her makinenin nasıl performans gösterdiğini görmenizi istiyorum, bu yüzden burada sadece bir XO örneği çalıştıracağım, tek bir küme. Tamam, burada 26,98 Teraflops aldığımızı fark edin, GPU zenginliğinden çok GPU zayıflığına daha yakınız.
+
+490 performansımı burada göstereceğim, normalde tam olarak bu civarda ama kümenin geri kalanını çalıştırmaya başladığımda diğer düğümleri keşfedecek ve şimdi bir tane daha çalıştırdığımda iki düğüm keşfettiğini göreceğiz, hatta
+
+bağlantıyı burada gösteriyor ve Teraflops değerimi ikiye katlıyor. Şimdi sadece birini çalıştıracağım ve test edelim. Sadece bir Mac için temel performansımızı almak için bir LLM kullanıyoruz, tamam, şimdi tek bir kümeye indik.
+
+Mac'inize erişmek istediğinizde 52415 numaralı portu kullanacaksınız ve bu 10721 169 için.
+
+Tarayıcımı burada açıyorum ve işte başlıyoruz.
+
+Solda modelimizi seçebileceğimizi fark edin.
+
+Sadece seçerek indirmez, örneğin 70b'ye tıklarsam 7db yapmaz ama 1B'ye tıklarsam ve yazmaya başlarsam indirmeye çalışır. Yani " Merhaba, nasıl gidiyor?" diyeceğim ve şimdi indiriyorum
+
+ve harika, şimdi çalışıyor. Ve burada performansımızı görüyoruz, bizim için belgeleniyor ve odaklanmak istediğiniz şey saniyedeki token sayısı.
+
+Diyelim ki bana bilgisayarlar hakkında korkunç bir hikaye anlatın.
+
+Ortalama olarak saniyede yaklaşık 117 token, bu küçük bir model ve bu Mac Studio'lardan biri bunu sorunsuz bir şekilde çalıştırabilir.
+
+Şimdi test etmek istediğim şey, diğerini eklersem ağ darboğazı. Dört Mac'i bir kümeye alıp işleri bölüştürdüğümüzde ne olacak, nasıl görünecek? Hadi şimdi bunu yapalım. Şimdi buradaki modeli silip diğer Mac'lerimi ekleyeceğim.
+
+Onların burada nasıl göründüğünü izleyelim.
+
+Tamam, iki, üç, yani kümeleme çok kolay, dört ve beş.
+
+Şimdi test edelim. Modeli indirmek için onunla konuşmaya başlayacağım. İndiriyor, her birine tüm modeli indiriyor gibi görünüyor. Belki de yanılmışımdır ya da belki bir hata vardır, bilmiyorum.
+
+Ama her iki durumda da kümemizin çalıştığını görüyoruz çünkü açıkça herkeste indiriliyor. Hadi aynı komutu tekrar deneyelim. Bana bilgisayarlar hakkında korkunç bir hikaye anlat. Vay canına, bant genişliği ve sınırlamalar çok büyük,
+
+saniyede 29 token, daha önce yaptığımız 117'ye kıyasla.
+
+Yani hız burada dostumuz olmayacak. Bunu bekliyordum. Beni daha çok heyecanlandıran şey, sahip olduğumuz RAM miktarı ve daha büyük modelleri çalıştırabilme yeteneği.
+
+Bakın, kahve molası zamanı! Bu molada size sponsorumdan bahsetmek istiyorum. Şimdi, o küçük hızlı ileri sarma düğmesine tıklamadan önce durun, bilin ki bu tür videoları mümkün kılan onlar, bu yüzden lütfen
+
+onlara biraz sevgi gösterin çünkü size VPN'i şu anda kullandığım üç yolu anlatmak istiyorum. Birincisi, bir web sitesine erişirken bana biraz anonimlik sağlaması için kullanıyorum. Birçok web sitesi, kim olduğunuzu belirlemek için genel IP adresinizi kullanır.
+
+Temelde, internette dolaşırken bir iz bırakıyorsunuz ve bunu takip ediyorlar. Bu yüzden Nord VPN'i kendimi gizlemek ve web sitelerini başka biri olduğumu düşünmeleri için kandırmak için kullanıyorum.
+
+İnsanların çevrimiçi kimliğinizi hızla değiştirmeleri için harika bir araç.
+
+İkincisi, bir sürü film izlemek. Japonya Netflix'inin Amerikan Netflix'inden farklı göründüğünü biliyor muydunuz?
+
+Aynı şey İngiltere ve diğer bölgeler için de geçerli. Ama Nord VPN kullanıyorsanız, kendinizi hızla İngiltere'de veya Japonya'da gibi gösterebilirsiniz ve aniden Netflix sizi Japonya Netflix'i olarak algılar.
+
+Bunu daha önce duymuş olabilirsiniz, ama yapımcım Alex inanılmaz bir şey yaptı.
+
+Letterbox adlı bir uygulama kullanıyor, hatta Alex onu buraya koydu. Ama size göstereceği şeylerden biri şu: Bir film aradığınızda, o filmi tüm yayın platformlarında nerede izleyebileceğinizi gösterir, ancak o,
+
+her ülke için tüm yayın platformlarını ekledi, böylece artık bir film izlemek istediğinde, eskiden ABD'de mevcut olmadığında sadece kiraladığı filmi izleyebiliyor; şimdi sadece VPN'i açıyor, konumunu değiştiriyor, işte bu kadar. Ve evet, Apple TV gibi cihazlarda da VPN çalıştırabilirsiniz. Üçüncüsü, evden uzaktayken,
+
+cihazlarımızı kullanırken kendimi ve ailemi korumak için VPN kullanıyorum ve evet, bu garip Wi-Fi ağlarına bağlanmayı da içeriyor. Birçok VPN karşıtı, internette artık VPN'e ihtiyacınız olmadığını, çünkü çoğu web sitesinin https olduğunu, yani sizinle
+
+web sitesi sunucusu arasındaki bağlantının güvenli olduğunu söyleyecektir ve bu internetin büyük bir kısmı için doğru, bu harika, ancak SSO'su olan ancak iyi bir web sitesi olmayan bir web sitesine denk gelirseniz ne olur? Şifrelenmiş olması önemli değil, insanların bunu yapmasının bir yolu da "yazım
+
+hatasıyla web sitesi yazma" denilen bir şeydir, yani Netflix yerine netfflux.com yazabilirsiniz.
+
+İdeal bir dünyada hiçbir yere varmazdı ama insanlar bu web sitelerini satın alıyor, kötü insanlar ve Netflix benzeri bir yer kuruyorlar. Ancak NordVPN'de tehdit koruması Pro gibi şeyler var, ziyaret ettiğiniz web sitelerinin kötü olup olmadığını size bildiriyorlar, ayrıca sizi reklamlardan koruyorlar. Reklamlar berbat, bu hariç,
+
+bu harika ve bunu biliyorsunuz.
+
+Ev ağımda ve iş ağımda reklamları engellemek için çok çaba sarf ettim ama dışarıda olduğumuzda reklamlar bize bakıyor, acıkıyorlar.
+
+NordVPN'i açın, reklamları engelleyecektir. Yani evet, 2015'te VPN kullanmak çok geçerli bir şey.
+
+Şiddetle tavsiye ederim, ben her zaman kullanıyorum. Aşağıdaki linke göz atın: nordvpn.com networkchuck veya bu yeni şık QR kodunu tarayın, QR kodu güvenli mi bilmiyorum, tarayın, VPN'inizi alın ve sonra güvende olup olmadığınızı görmek için tekrar tarayın. Ve
+
+tabii ki, benim linkimi kullanırsanız özel bir fırsat elde edersiniz. Ne bekliyorsunuz, bakın, aslında Yeni Yıl büyük indirimi artı dört ekstra ay, ayda üç dolara alacağım.
+
+Neyse, teşekkürler.
+
+Bu videoya sponsor oldukları ve bunun gibi şeyleri mümkün kıldıkları için VPN'e teşekkür etmiyorum. Şimdi yapay zeka kümeleme işlerine geri dönelim.
+
+Şimdi Thunderbolt'un ne yaptığını görelim. Şimdi Thunderbolt cihazlarımı bağlayacağım.
+
+Tamam, Thunderbolt bağlandı. Şimdi bu sunucuları nasıl bağladım? Şimdi size bir videosunu göstereceğim.
+
+İşte bazı ek görüntüler, ama esasen bir tür konuşma merkezi durumu oluşturuyoruz. Bir Mac'i diğer tüm Mac'lere bağladık. Açıkçası ideal olmayan bir durum çünkü bu cihaz bir darboğaz oluşturuyor, ancak bu cihazlar arasında
+
+saniyede 40 GB'lık bir ağ bağlantısından bahsediyoruz.
+
+Burada güzel bir Thunderbolt Köprüsü var. Thunderbolt ağ bağlantısı, normal TCP/IP tabanlı ağ bağlantısı veya Ethernet kadar gelişmiş değil, bu yüzden gelişmiş yapılandırmalarla saçımı yolmadan yapabileceğim en iyi şey bu çünkü bunu yapmak istemiyorum.
+
+Bu yüzden hepsine statik IP adresleri atadım ve EXO varsayılan olarak en hızlı bağlantıyı seçmeli. Bakalım seçiyor mu? Ve gerçekten de Thunderbolt köprüsü sıfırın izlendiğini görebiliyoruz.
+
+Hepsini çalıştırmadan önce bir sunucuyu test etmek istiyorum, yani bir değil. Sunucuya gelince, bir sunucunun nasıl performans gösterdiğini zaten biliyoruz, önce iki sunucuyu test edelim. Tamam, iki sunucu arasında Thunderbolt bağlantısı kurduk, çok çok hızlı olmalı.
+
+Bir komut istemi verelim ve biraz eğlenelim. Tamam, biraz daha hızlı. Sanırım daha önce 10 GB ağ bağlantısıyla saniyede 50 token'dan bahsediyorduk, yani önemli bir fark.
+
+Üç tane daha ekleyelim, partiye katıl dostum.
+
+Evet, aynı komut istemini kullanalım, yine de eskisinden daha iyi. Ama dikkat edin, Thunderbolt ile bile darboğaza ulaşıyoruz. Şimdi Thunderbolt neden daha iyi?
+
+Daha fazla bant genişliği, bu açık, ama aynı zamanda PCIe'ye daha doğrudan erişim sağlıyor, daha az ek yük, daha doğrudan.
+
+Ekibi ekleyelim, hadi beyler.
+
+Tamam, beş sunucudan oluşan bir kümemiz var, nasıl yaptığımıza bakalım. Tamam, aslında fena değil. Sanki "Bekle, az önce söyledin ve şimdi de karar veremediğini söylüyorsun" gibi.
+
+Bunu deneyelim. Tamam, tüm sunucular kullanılıyor. Bu komut istemini deneyelim ve ağ bağlantısının nasıl gerçekleştiğini izleyelim. Bant genişliği kullanımı açıkça hemen hemen aynı, bunu bekliyorduk. Şimdi daha büyük bir modeli test edelim.
+
+Llama 3.370b aslında en sevdiğim model, Deep Seek R1 yeni çıktı, henüz onunla oynamadım.
+
+Thunderbolt bağlantılarını ayıracağım ve ilk testte 10 GB çalıştıracağız. Tamam, sadece bir sunucuda XO çalıştırıyoruz, Llama 3.37 DB'nin oldukça iyi olmasını bekliyorum. Bu, 4 bitlik bir kuantum modeli, her şeyi çalıştırabilmeli ve bakalım nasıl
+
+performans gösterecek. İşte sunucu burada, RAM kullanımının çılgınca arttığını ve ilk token'a ulaşma süresinin biraz uzun sürdüğünü ve ardından GPU'nun devreye girdiğini göreceksiniz.
+
+İlk token'a ulaşma süresi 15 saniye, sadece yükleme ve performans çok iyi değil. Şimdi şunu söyleyeyim, bundan sonra AMA'yı test edeceğiz. Nedense AMA'daki modeller daha iyi, ne yaptıklarından emin değilim ve daha
+
+iyi derken, daha iyi performans gösteriyorlar gibi görünüyorlar, aslında daha iyi olup olmadıklarından emin değilim. Tamam, bu saçmalığı bırakalım, iki 70b deneyelim, aynı soruyu soracağız, buradaki ölçümlerimize bir bakın ve Hadi başlayalım, bir kısmını
+
+diğer sunucuya indirmem gerek, tamam, bellek hızla doluyor, biliyorsunuz, fena değil, beklediğimden daha iyi. Ağ bağlantısını kontrol edelim, tamam, ağ testi şimdi, biliyor musunuz, sadece bana mı öyle geliyor yoksa eskisinden daha az bant genişliği mi kullanıyor?
+
+Bu komik. Tamam, hepsini ekleyelim, beş tane de parti yapıyor, izleme sistemimizi çalıştırdık, bir soru soruyoruz, şimdi nasıl performans gösterdiğine bakalım. Ah, bir bit daha indirmem gerek. Ah, 2 dakika, beni öldürüyor. Dürüst olmak gerekirse,
+
+bu videoyu yapmanın en acı verici kısmı bu ve muhtemelen bunu kullanacaksanız sizin için de öyle: bu modellerin indirilmesini beklemek. Bu video çok uzun sürdü, bir gün bu videoyu bekliyordum. Ah hayır hayır hayır hayır, aptal Chuck, keşke ve sanırım geliyor.
+
+GitHub'da modelleri yerel olarak barındırıp sonra indirebileceğiniz bir çekme isteği gördüm.
+
+Modelleri ağınızda parçalara ayırmaları harika bir şey ama model yerel olsaydı, her seferinde Hughing Face'ten çekmek zorunda kalmasaydık çok daha hızlı olurdu. Tamam, şimdi sonunda deneyebiliriz.
+
+Burada berbat bir durumdayız, ama aslında o kadar da kötü değil. Saniyede 15 token'lık tüm sunucuları kullanıyoruz, bellek kullanımı iyi, GPU tüm sunucularımıza dağılmış durumda, bundan memnunum.
+
+Dünyanın en hızlısı değil ama çalışıyor, bayılıyorum buna. Hadi ağ bağlantısını test edelim. Tamam, ağ izleme sistemimizi kurduk.
+
+EXO'yu bir kez daha başlatalım, beş düğüm hazır ve test edelim, ağın nasıl çılgına döndüğünü izleyelim. Sanırım evet, işte başlıyoruz. Tamam, ağ trafiğini tüm sunuculara dağıtıyoruz. Komik olan şu ki,
+
+sadece top'un biraz garip davranması mı bilmiyorum ama Deb 2 benim bilgisayarım ve en yüksek bant genişliğine sahip alıcı olarak gösteriyor. Biraz garip ama kümülatif değere bakarsak, saniyede 64 megabit (bayt)
+
+ve saniyede yaklaşık 10 token alıyoruz.
+
+Thunderbolt'u test edelim, daha önce yaptığımız gibi iki sunucuyu test edelim, nasıl yaptığımıza bakalım. İki sunucuyu izleyelim. Sadece çılgına dönün ve performanstan bahsediyorum, yani Thunderbolt kullanıyoruz, değil mi? Evet, Thunderbolt kullanırken performans vasat.
+
+Takas belleği kullanmıyoruz, değil mi? Yani takas belleği yok, yani RAM'imiz biterse takasa geçecek, bu da sabit disklerden, SSD'lerden RAM alanı ödünç almaya başlayacağı anlamına geliyor. SSD'ler daha az performanslı, daha yavaş. RAM son derece hızlı, bu yüzden bu kadar pahalı. Tamam,
+
+hadi takımı test edelim.
+
+Beş ana bilgisayarlı Thunderbolt Bridge 70b, bakalım nasıl olacak. Hey, fena değil, aslında saniyede 11 token ile mutluyum.
+
+Veriler dağıtılıyor.
+
+Eğer bu bant genişliği sorununu çözebilirsek harika olurdu.
+
+Exol Labs'ın bunu nasıl çözeceğini bilmiyorum çünkü elimizdeki donanıma bağlıyız. Belki de akıllıca bir şey bulurlar. Ağ bağlantısını kontrol edelim ve sonra son testimize geçelim.
+
+Şimdi 405b'yi çalıştırabilir miyiz?
+
+Bu videonun başında 405b'nin en büyük ve en güçlüsü olduğunu söylemiştim. Hepsi derin arama özelliğine sahip. R1 yeni çıktı, yerel bir model ve 01'den daha iyi performans göstermesi bekleniyor. En büyükleri ise 671b, tam bir dev ve hayır, onu çalıştıramam, çok büyük.
+
+Thunderbolt üzerinden çalıştırmayı seviyorum çünkü ağ tarafında, sunucuların benimle konuşmadığı çok açık, çünkü kendi küçük özel ağlarındalar, tam Thunderbolt Köprüsü bağlantısı. Hadi ona eğlenceli bir soru soralım,
+
+bakalım bunu yapacak mı? Hazır, başla, tamam. Ağ bağlantısını izlerken hala saniyede 10 token görüyoruz, çok fazla bir şey görmüyoruz, değil mi? Bu garip.
+
+Thunderbolt Köprüsü kullanmıyor mu?
+
+Kesinlikle o şekilde bağlılar.
+
+Aklımı mı kaybediyorum?
+
+Bu arayüzleri izliyorum, ilerlemeyi görmediğim halde ölçek neden 19 megabite kadar çıkıyor?
+
+Muhtemelen bir şeyleri yanlış yapıyorum, biraz garip. Tamam, yeter bu kadar.
+
+70b'yi çalıştırabileceğimizi biliyoruz ama şimdi şunu istiyorum... En büyük ve en güçlü modeli çalıştıralım, önce 10 gigabaytlık bir modeli çalıştırıp çalıştıramayacağımıza bakalım. Şunu söylemeliyim ki, bu modeli çalıştırmak biraz zamanımı aldı çünkü indirmek çok büyük bir iş ve evet, 405b'ye gittiğimde sadece "bir şey söyle"ye tıklayabiliyor olmam inanılmaz. Çünkü
+
+burada hazır duruyor ve tüm sunucularıma indirilmeye başlıyor ama çok uzun sürüyor ve bittiğinde hala biraz hatalıydı, güvenmedim. Bu yüzden yerel olarak indirip çalıştırmak istedim ama bu, henüz dahil olmayan bir özellik olan bir çekme isteği bulmamı gerektiriyordu. Bunu yaptım,
+
+kontrol ettim, şu anda o daldayım ve aşağıda yerel bir 405 4 bit modelim olduğunu göreceksiniz. Şimdi bunu tek bir sunucuda çalıştırmayı denemeyeceğim bile, kendini öldürür. Aslında, sadece
+
+eğlence olsun diye yapalım, nasıl olduğunu görelim. Yani tek bir sunucuda çalıştırıyorum ve bu arada tüm modeli indirmek zorunda kaldım. Sanırım yaklaşık 200 gigabayt, neredeyse 200 gigabayt ve sonra bunu her sunucuya yerleştirdik, bu da Hugh Face'ten indirmekten çok daha verimliydi. Tamam, bana bir
+
+hikaye anlatın, şu RAM'in yüklenmesini izleyin, sanki çığlık atmak üzere ve sonra muhtemelen takas alanını göreceksiniz, yani kesinlikle göreceksiniz, inanıyorum ki takas alanına bakın, şu anda 50'deyiz, takas alanı geliyor, işte gidiyor,
+
+tüm sabit disk alanını kullanacağız ve bu böyle olacak, sanırım sonunda çalışacak ama sadece, yani 20 gigabayt takas alanındayız, kullanmak istemiyorum, sanırım neredeyse sabit disk alanım bitti, bunu hemen durduracağım,
+
+buradan çıkacağım, muhtemelen zaman aşımına uğrayacak, bakalım tekrar kapanacak mı, tamam, harika, bu korkutucuydu, bunu yapmamamızın nedeni bu, ancak RAM'i tüm sunucularımız arasında paylaşırsak biraz daha iyi olmalı, bunu
+
+şimdi yapalım, kümemizi çalıştıralım, hala 10 gigabayt Ethernet kullanıyoruz Harika, tüm sunucular çalışıyor, model her birinde çalışıyor, biliyorsunuz aslında komutun özel bir sürümünü çalıştırmam gerekiyor,
+
+çıkarım motoru olarak mlx'i şu şekilde belirtmem gerekiyor, bunu otomatik olarak keşfetmeli ve çalıştırmalı ama bunu mahvetmemeye dikkat etmek istiyorum, tamam mı? Aktif durumdayız, izleyelim ve ne olduğunu görelim.
+
+Tekrar söylüyorum, amacımız son haberleri göz ardı edersek en büyük ve en güçlü modeli çalıştırmaktı, ama işte başlıyoruz ve çalıştırıyoruz. Tamam, RAM'in genel olarak nasıl dolduğunu izleyelim. En alttaki sol alt köşeyi dolduruyor, umarım takas alanına ulaşmaz,
+
+sadece tüm düğümlere dağıtmaya başlar.
+
+Burayı dolduruyor mu? Evet, şu an için sağ üst köşeyi dolduruyor, yani takas alanı hala aktif değil. Tamam, her düğümün RAM'ini yavaş yavaş dolduralım. Tamam, şimdi burayı dolduruyoruz, henüz
+
+metin üretmeye başlamadık. Tamam, sol üst köşeyi dolduruyoruz, modeli belleğe yüklemek biraz zaman alıyor ve sanırım... Neredeyse bitti, sadece dağıtımın tamamlanması çok uzun sürüyor, takas belleğini eşit dağıtacak mı acaba?
+
+Ağ hatası hakkında meraklıyım ama başladı, bana bir kelime söyledi, burada dedi ama şimdiye kadar kullanılan takas belleği görmüyorum.
+
+Sayfamızı yenileyelim ve tekrar deneyelim, model yüklü kalmalı, böylece tekrar beklememize gerek kalmaz.
+
+Tamam, işte başlıyoruz, benim için bir şey üretelim, hadi bakalım, yapıyor.
+
+İlk token'a ulaşmak sadece 5 saniye sürdü ve saniyede 8 token gibi inanılmaz bir hızla ilerliyoruz. Ama biliyor musunuz, başardık!
+
+Normalde bir Daya Center dolusu malzemeyi alacak olan en büyük ve en güçlü modeli yerel donanımda çalıştırıyoruz. Yavaş ama başardık! Al sana Zuckerberg, al sana Musk, sana ihtiyacımız yok, modelini kullanıyor olsak da. Saniyede 5 token ile ilerliyoruz. Thunderbolt'ta daha hızlı olacak mı bakalım.
+
+Tamam, bu saçmalığı durduracağım, Thunderbolt'u çalıştırdım. ve çalışıyor veya bağlı, hadi şimdi XO'yu çalıştıralım, ah dur, MLX sürümümü yapmam gerek, tamam, beş hayır, Thunderbolt'tayız, işte başlıyoruz, bunun ne yapacağını görmek için heyecanlıyım, şu anda
+
+RAM'e yüklenmedi, bu yüzden biraz zaman alabilir, işte başlıyoruz, RAM çıldırıyor, işte başlıyoruz, keşke hepsini birden doldursaydın, bunun yüklenmesi sonsuza kadar sürüyor Model harika, kahve molası, uzun zamandır böyle bir şey yapmamıştım.
+
+Her şey yüklenmeden önce zaman aşımına uğrayacak, evet ve zaman aşımına uğradı, tekrar deneyelim. Tamam, GPU yükseliyor, bir şeyler alıyoruz ama tüm GPU'yu kullanmıyoruz, yani buradaki darboğazımız ağ bağlantısı.
+
+Bu beş Mac Studio'nun GPU'ları arasında ciddi bir bağlantı olsaydı deneyimin nasıl olacağını çok merak ediyorum. Şimdi performans daha iyi değil, saniyede 6 token'dan bahsediyoruz, orada donup kaldık. Ama RAM'e gelince, destekleniyor. Çok heyecan verici, çok yavaş ama heyecan verici.
+
+Ağ etkinliğini kontrol edelim. Tamam, zaman aşımına uğradım. Yani ağ bağlantısı, yani çok fazla bant genişliği kullanmıyor, sadece iyi değil. Yaşlı adam, seni uyutalım, çok yavaşsın.
+
+Tamam, size hızlıca göstermek istediğim şey Olama'nın performansı. Olama'nın ne olduğunu bilmiyorsanız, muhtemelen makinenizde yerel olarak yapay zeka modellerini çalıştırmanın en iyi yollarından biridir.
+
+Herhangi bir makinede kurulumu çok kolay.
+
+Alama listesine bakayım, şu anda kurulu olanlara göz atayım. Alama çalışmıyor, hemen Russ'un masasına geçeyim. Linux kullanmadığımı unutmuştum, bu yüzden Max'i seviyorum. Bazen Linux kullanmadığınızı unutuyorsunuz.
+
+70b 3.3'ü çalıştıracağız, indirmesi biraz zaman alacak, 42 ​​gigabayt ama ne kadar daha iyi olduğunu göreceksiniz. Şimdi indirirken Fabric projesinin yaratıcısı Daniel Misler ile konuşuyordum ve o harika bir adam, onu çok seviyorum.
+
+Ona mesaj attım ve "Lütfen EXO Labs için bu desteği ekleyin, Fabric için test etmek istiyorum" dedim. O da ekledi, o yüzden Fabric'i hızlıca güncelleyelim. Tamam, işte burada ve GNA Go oldukça hızlı, bakın ne kadar hızlı. Yani model kesinlikle yüklendi, ancak takas yok, GPU
+
+tam GPU'yu kullanıyor. İşte EXO ile ilgili mesele şu ki, sanırım Mac'te MLX performansı tam olarak yeterli değil, ancak MAT olmayan bilgisayarlarda farklı bir şey göreceğiz, yani video GPU'larında çalışan şeyler... Biliyorsunuz, Nvidia GPU'lu
+
+video düzenleme bilgisayarlarımı bu Mac'lerle değiştiriyorum.
+
+Tüm bu ekstra bilgisayarları bir araya getirdiğim başka bir video daha çekmeli miyim, bana bildirin. Ama şu an harika çalışıyor, gördüğünüz gibi.
+
+405b gibi daha büyük bir modeli çalıştırmaya çalışsaydım iyi olmazdı, ama bu model, Mac Studio'mdaki 64 GB RAM ile harika çalışıyor, bu oldukça şaşırtıcı. 70b modeli muhteşem.
+
+Deep Seek'in yeni modelini de denemeliyiz, onların da 70b modeli var. Bakalım makinemizde ne kadar yer var. Evet, yerimiz var. O zaman bunu 42 GB daha fazla çalıştıralım. Bunu yaparken Fabric'i de çalıştıracağım. Tamam,
+
+bunu hızlıca test edelim. Nasılsınız?
+
+Takas belleği kullanmıyoruz ve Deep Seek çalıştırıyoruz, bu Mac Studio'da çok büyük bir şey, inanılmaz. Tamam, Fabric'i bu sürüme güncelledim.
+
+Bunu denemek için çok heyecanlıyım. Bu arada, Fabric'i kullanabiliyorum, daha doğrusu Daniel Misler kullanıyor. EXO ile Fabric'i uygulayabiliyoruz çünkü EXO, Chad GPT uyumlu API'leri kullanıyor. Ah, bu komut değil, hadi bu kurulumu çalıştıralım. EXO'yu çalıştıralım, en
+
+azından tüm işlemlerimi çalıştırdığımdan emin olayım ve bu sunucuların her biri kendi küçük API'sini çalıştırmalı ve ben de buradaki ana sunucudan çalıştıracağım. Yani Echo, bana bir hikaye anlat, bunu Fabric'e aktar. Tamam, çalışmıyor. Ah, işte oldu.
+
+Hayır, işte oldu. Ama bana akış yapmasını istiyorum. Akış yapacak mı?
+
+Akışı desteklemiyor olabilir. Ah, işte oldu.
+
+Ah, bu harika! Bununla Fabric kullanıyorum, bu çok havalı. Tamam, bu çok havalı.
+
+Daniel Misler, çok teşekkür ederim ve hadi test edelim. Tamam, bir şeyler oluyor. Ah, evet, Fabric. Biraz zaman alıyor ama işte başlıyoruz. Aman Tanrım, bu çok hızlı bir hikayeydi. Bir şeyi özetleyelim.
+
+Bilgisayara gidelim, tüm bu metni alalım, yapıştıralım, özetleyelim. Tamam, ona çok fazla metin gönderiyoruz ve işte oldu. Aman Tanrım, bu harika! Evet, bu harika bir şey. Neyse, bu kadar. Çok havalı, tamam, hadi bu videoyu bitirelim,
+
+çok uzun zaman oldu. Exol Laabs çok havalı, MLX ile Mac için çok heyecanlıyım.
+
+Bence hala yapılması gereken daha çok iş var, şu anda ağ hala bir darboğaz, ancak Nvidia tabanlı bir kümede nasıl performans göstereceğini bilmiyorum, bunu görmek isterseniz aşağıda bana bildirin.
+
+Ayrıca Exol Laabs ile bir Raspberry Pi yapay zeka kümesi yapmayı düşünüyordum, bunu yapmamı isterseniz bana bildirin. Şimdilik bu kadar, bir sonraki sefere görüşürüz.
