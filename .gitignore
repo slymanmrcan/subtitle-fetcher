@@ -1,0 +1,48 @@
+# Python
+*.py[cod]
+*$py.class
+*.so
+__pycache__/
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Flask
+instance/
+.webassets-cache
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment variables
+.env
+.env.local
+.flaskenv
+
+# Temporary files
+temp_subs/
+*.tmp
+*.log
+
+# Docker (optional - uncomment if needed)
+# docker-compose.override.yml
+
+# OS
+Thumbs.db
+.DS_Store
